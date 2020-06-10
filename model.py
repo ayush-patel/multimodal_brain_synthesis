@@ -131,9 +131,7 @@ class Multimodel(object):
 
         return outputs
 
-    # HeMIS based fusion:
-    # M. Havaei, N. Guizard, N. Chapados, and Y. Bengio, “HeMIS: Hetero- modal image segmentation,”
-    # in MICCAI. Springer, 2016, pp. 469–477
+    # HeMIS based fusion: HeMIs
     def hemis(self, ind_emb):
         if len(self.input_modalities) == 1:
             combined_emb1 = ind_emb[0]

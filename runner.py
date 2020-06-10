@@ -147,6 +147,11 @@ class Experiment(object):
             for mod in self.output_modalities:
                 csv_header = '#,' + ','.join(metrics[:-1]) + ', volume_type, MSE_NBG_AVG_EMB\n'
                 csv_file = folder_split + '/individual_results_emb_' + str(emb) + '_mod_' + mod + '.csv'
+
+                #python 'open' can't make the directory, so invoke 'os' to create the folder
+                if not os.path.exists(folder_split):
+                    os.makedirs(folder_split)
+                    
                 fd = open(csv_file, "w")
                 fd.write(csv_header)
                 files[mod] = fd
